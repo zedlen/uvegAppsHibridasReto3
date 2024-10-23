@@ -1,0 +1,54 @@
+<div class="text-center login-container">
+  <div class="form-signin" [formGroup]="group">
+    <h1 class="title">Bienvenido!</h1>
+    <label for="inputEmail" class="sr-only">Email</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['email']?.touched && group?.controls?.['email']?.errors?.['required']"
+    >
+      El email es requerido
+    </span>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['email']?.touched && group?.controls?.['email']?.errors?.['email']"
+    >
+      El email no tiene el formato adecuado
+    </span>
+    <input
+      type="email"
+      id="inputEmail"
+      class="form-control"
+      placeholder="Email"
+      required
+      autofocus
+      formControlName="email"
+    />
+    <label for="inputPassword" class="sr-only">Contraseña</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['password']?.touched && group?.controls?.['password']?.errors?.['required']"
+    >
+      La contraseña es requerida
+    </span>
+    <input
+      type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Contraseña"
+      required
+      formControlName="password"
+    />
+
+    <span class="input-error" *ngIf="invalidUser">
+      Usuario o contraseña invalidos
+    </span>
+    <div class="buttons">
+      <button class="btn btn-primary" type="button" (click)="onSignInPress()">
+        Iniciar sesión
+      </button>
+      <button class="btn btn-secondary" routerLink="/sign-up">
+        Registrarse
+      </button>
+    </div>
+  </div>
+</div>

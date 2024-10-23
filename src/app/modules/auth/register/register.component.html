@@ -1,0 +1,90 @@
+<div class="text-center login-container">
+  <div class="form-signin" [formGroup]="group">
+    <h1 class="title">Registrate ahora!</h1>
+
+    <label for="inputName" class="sr-only">Nombre</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['name']?.touched && group?.controls?.['name']?.errors?.['required']"
+    >
+      El nombre es requerido
+    </span>
+    <input
+      type="name"
+      id="inputName"
+      class="form-control"
+      placeholder="Nombre"
+      required
+      autofocus
+      formControlName="name"
+    />
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['email']?.touched && group?.controls?.['email']?.errors?.['required']"
+    >
+      El email es requerido
+    </span>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['email']?.touched && group?.controls?.['email']?.errors?.['email']"
+    >
+      El email no tiene el formato adecuado
+    </span>
+    <input
+      type="email"
+      id="inputEmail"
+      class="form-control"
+      placeholder="Email"
+      required
+      autofocus
+      formControlName="email"
+    />
+    <label for="inputPassword" class="sr-only">Contraseña</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['password']?.touched && group?.controls?.['password']?.errors?.['required']"
+    >
+      La contraseña es requerida
+    </span>
+    <input
+      type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Contraseña"
+      required
+      formControlName="password"
+    />
+
+    <label for="inputRepeatPassword" class="sr-only">Repetir Contraseña</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['repeatPassword']?.touched && group?.controls?.['repeatPassword']?.errors?.['required']"
+    >
+      Por favor repite la contraseña para validar
+    </span>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['repeatPassword']?.touched && group?.controls?.['repeatPassword']?.errors?.['match_error']"
+    >
+      Las contraseñas no coinciden
+    </span>
+    <input
+      type="password"
+      id="inputRepeatPassword"
+      class="form-control"
+      placeholder="Repetir Contraseña"
+      required
+      formControlName="repeatPassword"
+    />
+    <div class="buttons">
+      <button class="btn btn-primary" type="button" (click)="onSignUpPress()">
+        Registrar
+      </button>
+      <button class="btn btn-secondary" routerLink="/sign-in">
+        Iniciar Sesión
+      </button>
+    </div>
+  </div>
+</div>
