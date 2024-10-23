@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'reto-3';
+  isLogged: boolean = false;
+
+  constructor(private authService: AuthService) {
+    this.authService.getIsLogged().subscribe((value: boolean) => {
+      this.isLogged = value;
+    });
+  }
 }
