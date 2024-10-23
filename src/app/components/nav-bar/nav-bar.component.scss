@@ -13,6 +13,7 @@ TODO: Add responsive design as it might be intended to use more on mobile
 ul{
     margin: 0;
     font-size: 1rem;
+    max-height: 100%;
     &.menu{
         display: flex;
         flex-direction: row;
@@ -23,8 +24,14 @@ ul{
       list-style: none;
       margin-top: 10px;
       padding: 20px;
+      max-height: 100%;
       &.app-logo{
         flex: 2;
+        .logo{
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
       }  
       &.pull-rigth{
         align-self: end;
