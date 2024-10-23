@@ -1,0 +1,41 @@
+@import "../../../colors.scss";
+
+/*
+
+TODO: Add responsive design as it might be intended to use more on mobile
+*/
+.nav-holder{
+    position: sticky;
+    height: 80px;
+    background-color: $contrast;
+}
+
+ul{
+    margin: 0;
+    font-size: 1rem;
+    &.menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    li{
+      flex: 1;
+      list-style: none;
+      margin-top: 10px;
+      padding: 20px;
+      &.app-logo{
+        flex: 2;
+      }  
+      &.pull-rigth{
+        align-self: end;
+        text-align: right;
+      }
+      a{
+        text-decoration: none;
+        color: $accent;
+      }
+      button{
+        font-size: 1rem;
+      }
+    }
+}
