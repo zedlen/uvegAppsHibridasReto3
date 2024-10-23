@@ -15,6 +15,11 @@ const routes: Routes = [
     component: ListComponent,
     canActivate: [hasSessionGuard],
   },
+  {
+    path: 'games',
+    redirectTo: 'games/best-sellers',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
