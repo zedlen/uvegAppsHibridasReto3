@@ -30,6 +30,6 @@ export class LoginComponent {
       this.invalidUser = true;
       return;
     }
-    this.router.navigate(['/', 'main']);
+    this.router.navigate(['/', 'games']);
   }
 }

@@ -36,7 +36,7 @@ export class RegisterComponent {
     }
     const { name, email, password } = this.group.value;
     this.authService.signIn(name, email, password);
-    this.router.navigate(['/', 'main']);
+    this.router.navigate(['/', 'games']);
   }
 
   createCompareValidator(controlNameOne: string, controlNameTwo: string) {
