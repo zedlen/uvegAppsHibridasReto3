@@ -4,7 +4,7 @@ import { NotFoundComponent } from './modules/not-found/not-found.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'sign-in',
     pathMatch: 'full',
   },
   {

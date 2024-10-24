@@ -8,6 +8,8 @@ TODO: Add responsive design as it might be intended to use more on mobile
     position: sticky;
     height: 80px;
     background-color: $contrast;
+    z-index: 100;
+    top: 0;
 }
 
 ul{
