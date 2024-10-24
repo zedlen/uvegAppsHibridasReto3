@@ -1,1 +1,129 @@
-<p>add-game works!</p>
+<div class="text-center game-form-container">
+  <div class="form-game" [formGroup]="group">
+    <h1 class="title">Registrar nuevo juego</h1>
+
+    <label for="inputTitle" class="sr-only">Titulo</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['title']?.touched && group?.controls?.['title']?.errors?.['required']"
+    >
+      El titulo es requerido
+    </span>
+    <input
+      type="title"
+      id="inputTitle"
+      class="form-control"
+      placeholder="Titulo"
+      required
+      autofocus
+      formControlName="title"
+    />
+
+    <label for="inputDescription" class="sr-only">Descripción</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['description']?.touched && group?.controls?.['description']?.errors?.['required']"
+    >
+      La descripción es requerida
+    </span>
+    <input
+      type="text"
+      id="inputDescription"
+      class="form-control"
+      placeholder="Descripción"
+      required
+      autofocus
+      formControlName="description"
+    />
+
+    <label for="inputReleaseDate" class="sr-only">Fecha de Lanzamiento</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['releaseDate']?.touched && group?.controls?.['releaseDate']?.errors?.['required']"
+    >
+      La fecha de lanzamiento es requerida
+    </span>
+    <input
+      type="date"
+      id="inputReleaseDate"
+      class="form-control"
+      placeholder="Contraseña"
+      required
+      formControlName="releaseDate"
+    />
+
+    <label for="inputUrl" class="sr-only">URL de imagen</label>
+    <input
+      type="url"
+      id="inputUrl"
+      class="form-control"
+      placeholder="Imagen"
+      formControlName="image"
+    />
+
+    <label for="inputRating" class="sr-only">Rating</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['rating']?.touched && group?.controls?.['rating']?.errors?.['required']"
+    >
+      El rating es requerido
+    </span>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['rating']?.touched && (group?.controls?.['rating']?.errors?.['min'] || group?.controls?.['rating']?.errors?.['max'])"
+    >
+      El rating debe ser igual o mayor a 0 e igual o menor que 5
+    </span>
+    <input
+      type="number"
+      min="0"
+      max="5"
+      id="inputRating"
+      class="form-control"
+      placeholder="Rating"
+      required
+      formControlName="rating"
+    />
+
+    <label for="inputDownloads" class="sr-only">Descargas</label>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['downloads']?.touched && group?.controls?.['downloads']?.errors?.['required']"
+    >
+      El numero de descargas es requerido
+    </span>
+    <span
+      class="input-error"
+      *ngIf="group?.controls?.['downloads']?.touched && group?.controls?.['downloads']?.errors?.['min'] "
+    >
+      El numer de descargas debe ser igual o mayor a 0
+    </span>
+    <input
+      type="number"
+      min="0"
+      id="inputDownloads"
+      class="form-control"
+      placeholder="Descargas"
+      required
+      formControlName="downloads"
+    />
+
+    <label for="inputComingSoon" class="sr-only">Proximamente?</label>
+
+    <input
+      type="checkbox"
+      id="inputComingSoon"
+      class="form-control"
+      placeholder="Proximamente?"
+      formControlName="comingSoon"
+    />
+    <div class="buttons">
+      <button class="btn btn-primary" type="button" (click)="createGame()">
+        Registrar
+      </button>
+      <button class="btn btn-secondary" routerLink="/best-sellers">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>

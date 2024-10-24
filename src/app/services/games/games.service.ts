@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { initalGames } from '../../constants/games';
 import { BehaviorSubject } from 'rxjs';
+import { v4 } from 'uuid';
 
 export interface Game {
   id?: string;
@@ -23,10 +24,7 @@ export class GamesService {
   constructor() {}
 
   addGame(game: Game): void {
-    this.games.next([
-      ...this.games.value,
-      { ...game, id: this.games.value.length.toString() },
-    ]);
+    this.games.next([...this.games.value, { ...game, id: v4() }]);
   }
 
   getBestSellers(): Array<Game> {

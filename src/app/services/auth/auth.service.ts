@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { v4 } from 'uuid';
 
 export interface User {
   id: string;
@@ -43,7 +44,7 @@ export class AuthService {
       name,
       email,
       password,
-      id: this.users.length.toString(),
+      id: v4(),
     };
     this.users.push(newUser);
     localStorage.setItem('isLogged', JSON.stringify(newUser));
